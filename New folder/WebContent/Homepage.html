@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="src/startbootstrap-agency-master/vendor/bootstrap/css/bootstrap.min.css">
+<title>VServe</title>
+<style>
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+/****** LOGIN MODAL ******/
+.loginmodal-container {
+  padding: 30px;
+  max-width: 350px;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+
+.loginmodal-container h1 {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+}
+
+.loginmodal-container input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loginmodal-container input[type=text], input[type=password] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.loginmodal {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+/* border-radius: 3px; */
+/* -webkit-user-select: none;
+  user-select: none; */
+}
+
+.loginmodal-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #4d90fe;
+  padding: 17px 0px;
+  font-family: roboto;
+  font-size: 14px;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+} 
+
+.login-help{
+  font-size: 12px;
+}
+
+body.modal-open #wrap{
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+  
+.modal-backdrop {background: #f7f7f7;}
+
+.close {
+    font-size: 50px;
+    display:block;
+}
+body {
+    padding-top: 90px;
+}
+.panel-login {
+    border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #029f5b;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #59B2E0;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+.forgot-password {
+	text-decoration: underline;
+	color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: underline;
+	color: #666;
+}
+
+.btn-register {
+	background-color: #1CB94E;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 70%;
+    min-height: 70%;
+    font-size: 70px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+}
+
+/*
+Fade content bs-carousel with hero headers
+Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
+Image credits: unsplash.com
+*/
+
+/********************************/
+/*       Fade Bs-carousel       */
+/********************************/
+.fade-carousel {
+    position: relative;
+    height: 100vh;
+}
+.fade-carousel .carousel-inner .item {
+    height: 100vh;
+}
+.fade-carousel .carousel-indicators > li {
+    margin: 0 2px;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    opacity: .7;
+}
+.fade-carousel .carousel-indicators > li.active {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.fade-carousel .carousel-inner .item .hero {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s; 
+        -ms-transition: 2s all ease-in-out .1s; 
+         -o-transition: 2s all ease-in-out .1s; 
+            transition: 2s all ease-in-out .1s; 
+}
+.fade-carousel .carousel-inner .item.active .hero {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s; 
+        -ms-transition: 2s all ease-in-out .1s; 
+         -o-transition: 2s all ease-in-out .1s; 
+            transition: 2s all ease-in-out .1s;    
+}
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .7;
+}
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-hero,
+.btn.btn-hero:hover,
+.btn.btn-hero:focus {
+    color: #f5f5f5;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    outline: none;
+    margin: 20px auto;
+}
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1, 
+.fade-carousel .slides .slide-2,
+.fade-carousel .slides .slide-3 {
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.fade-carousel .slides .slide-1 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818); 
+}
+.fade-carousel .slides .slide-2 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af);
+}
+.fade-carousel .slides .slide-3 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327);
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+@media screen and (min-width: 980px){
+    .hero { width: 980px; }    
+}
+@media screen and (max-width: 640px){
+    .hero h1 { font-size: 4em; }    
+}
+
+@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+section {
+    padding: 100px 0;    
+    width: 100%;
+}
+
+section h2 {
+    margin: 0;
+    font-size: 3em;
+}
+hr.star-light,
+hr.star-primary {
+    margin: 25px auto 30px;
+    padding: 0;
+    max-width: 250px;
+    border: 0;
+    border-top: solid 5px;
+    text-align: center;
+}
+
+hr.star-light:after,
+hr.star-primary:after {
+    content: "\f005";
+    display: inline-block;
+    position: relative;
+    top: -.8em;
+    padding: 0 .25em;
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+hr.star-light {
+    border-color: #fff;
+}
+
+hr.star-light:after {
+    color: #fff;
+    background-color: #18bc9c;
+}
+
+hr.star-primary {
+    border-color: #2c3e50;
+}
+
+hr.star-primary:after {
+    color: #2c3e50;
+    background-color: #fff;
+}
+
+section.primary h2{    
+    color: #2c3e50;
+    }
+    
+section.success{
+    background-color: #18bc9c;
+    color: #fff;
+    }
+     html,body {
+    height:100%;
+    width:100%;
+    position:relative;
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .7;
+}
+
+</style>
+</head>
+
+
+<body>
+<script src="src\startbootstrap-agency-gh-pages\vendor\jquery\jquery.min.js"></script>
+<script src="src\startbootstrap-agency-gh-pages\vendor\bootstrap\js\bootstrap.min.js"></script>
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<div style="position:absolute;">
+
+<!-- scrollspy tabs -->
+<nav class="navbar navbar-inverse navbar-fixed top" role="navigation" id="navbar-spy">
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav navbar-right">
+
+<li class="active"><a href="#scroll-first">Home</a></li>
+<li><a href="#scroll-second">Join Us</a></li>
+<li><a href="#scroll-third">Become A Professional</a></li>
+<li><a href="#scroll-fourth">Services</a></li>
+<li><a href="#scroll-fifth">About Us</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- scrollspy content -->
+
+<div data-target="#navbar-spy" data-spy="scroll" style="height:1200px; overflow-y:scroll; position:relative;">
+
+<div id="scroll-first">
+<div class="container">
+<!-- home content here -->
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+            <h1>We are creative</h1>        
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1>We are smart</h1>        
+            <h3>Get start your next awesome project</h3>
+        </hgroup>       
+        
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1>We are amazing</h1>        
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        
+      </div>
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+
+<div id="scroll-second">
+<section class="success">
+       <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Join Us</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                </div>
+            </div>
+            </div>
+              
+   
+<div id="wrap" class="text-center">
+  <!-- Button trigger modal -->
+  <br>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Vendor Login
+</button>
+</div>
+
+<!-- Modal Become a professional -->
+                 
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+    	<div class="loginmodal-container">    
+	
+                                        <form  action="login_validate.jsp" method="post" role="form" style="display: block;">
+							<div class="form-group">
+									<div class="input-group">
+                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input type="text" name="email" id="username" tabindex="1" class="form-control" placeholder="Email" value="">
+									</div>
+									</div>
+									<div class="form-group">
+									<div class="input-group">
+                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Remember Me</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</form>
+								</div>
+                                        </div>
+                                        </div>
+                                      
+                                        
+                                        
+                                      
+
+       
+                 
+                  
+               &nbsp;     &nbsp;
+     &nbsp;         
+          
+  <div id="wrap" class="text-center">
+<button class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#login-modal">
+  Customer Login
+</button>
+</div>
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+			
+        
+				<div class="panel panel-login">
+			
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-md-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
+							</div>
+							<div class="col-md-6">
+								<a href="#" id="register-form-link">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="customer_login_validate.jsp" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="email" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Remember Me</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="customer_register2.jsp" method="post" role="form" style="display: none;">
+								
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			                <input type="text" name="first_name" id="first_name" class="form-control input-sm floatlabel" placeholder="First Name">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="form-group">
+			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+			    			</div>
+
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="text" name="contact" id="password_confirmation" class="form-control input-sm" placeholder="Contact Number">
+			    					</div>
+			    				</div>
+			    			</div>
+			    			
+			    			<input type="submit" value="Register" class="btn btn-info btn-block">
+			    		
+			    		</form>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+		
+		
+		  </div>
+
+
+
+</div>
+</div>
+               
+              
+                    </section>
+                    </div> 
+					
+
+&nbsp;&nbsp;
+ <hr>
+&nbsp;&nbsp;
+<div id="scroll-third">
+<!-- services content here -->
+ <section class="primary" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Become A Professional</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" action="VendorRegister2" method="post" enctype="multipart/form-data" id="contactForm" novalidate="">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Aadhar Id</label>
+                                <input type="text"  name="Aadhar" class="form-control" placeholder="Aadhar Id" id="name"  data-validation-required-message="Please enter Aadhar Id">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Full Name</label>
+                                <input type="text"  name="FullName" class="form-control" placeholder="Aadhar Id" id="name"  data-validation-required-message="Please enter Full Name">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Phone Number</label>
+                                <div class="input-group">
+                   <span class="input-group-addon">+91</span>
+                                <input type="tel" name="Contact" class="form-control" placeholder="Phone Number"  id="phone"  data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email Address</label>
+                                <input type="email" name="Email" class="form-control" placeholder="Email Address" id="email" data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                       
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Password</label>
+                                <input type="password" name="Password" class="form-control" placeholder="password" id="password" data-validation-required-message="Please enter your password">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+        <label class="text-align left">Upload Image</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    Browse..<input type="file" name="profile_picture" id="imgInp">
+                </span>
+            </span>
+            
+        </div>
+        
+    </div>
+                        
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+&nbsp;&nbsp;
+<hr>
+&nbsp;&nbsp;
+<div id="scroll-fourth">
+<!-- aboutus content here -->
+<section class="success">
+<div class="row">
+<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Our Services</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+  <div class="col-md-4">
+    <div class="img-rounded">
+      <a href="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service33.jpg">
+        <img  class="img-responsive" class="img-rounded" src="C:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service33.jpg" style="width:85%">
+        <div class="caption">
+          <p>Jain caterers</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <figure class="figure">
+     <a href="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service22.jpg">
+     <img src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service22.jpg" class="img-rounded" class="figure-img img-fluid rounded" style="width:85%">
+     <figcaption class="figure-caption">Agrawal cateres</figcaption>
+     </a>
+    </figure>
+  </div>
+  
+  <div class="col-md-4">
+     <figure class="figure">
+     <a href="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg">
+     <img src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg" class="img-rounded" class="figure-img img-fluid rounded" style="width:85%">
+     <figcaption class="figure-caption">Agrawal cateres</figcaption>
+     </a>
+    </figure>
+  </div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="row">
+
+  <div class="col-md-4">
+    <figure class="figure">
+     <a href="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg">
+     <img src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg" class="img-rounded" class="figure-img img-fluid rounded" style="width:85%">
+     <figcaption class="figure-caption">Agrawal cateres</figcaption>
+     </a>
+    </figure>
+  </div>
+  
+  <div class="col-md-4">
+    <figure class="figure">
+     <a href="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg">
+     <img src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg" class="img-rounded" class="figure-img img-fluid rounded" style="width:85%">
+     <figcaption class="figure-caption">Agrawal cateres</figcaption>
+     </a>
+    </figure>
+  </div>
+  
+  <div class="col-md-4">
+     <figure class="figure">
+     <a href="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg">
+     <img src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service1.jpg" class="img-rounded" class="figure-img img-fluid rounded" style="width:85%">
+     <figcaption class="figure-caption">Agrawal cateres</figcaption>
+     </a>
+    </figure>
+  </div>
+</div>
+
+
+      
+            </section>
+</div>
+&nbsp;&nbsp;
+<hr>
+&nbsp;&nbsp;
+<div id="scroll-fifth">
+<!-- contact content here -->
+
+<section class="primary">
+<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Our Team</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+
+
+  <div class="row">
+    <div class="col-md-offset-1 col-md-3">
+      <img class="img-circle" src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service22.jpg"/>
+      <div class="content-heading"><h3>Experience </h3></div>
+      <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+    </div>
+ 
+
+ 
+    <div class="col-md-3 col-md-offset-1">
+      <img class="img-circle" src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service22.jpg"/>
+      <div class="content-heading"><h3>Experience </h3></div>
+      
+      <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+  </div>
+
+  
+    <div class="col-md-offset-1 col-md-3">
+      <img class="img-circle" src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service22.jpg"/>
+      <div class="content-heading"><h3>Experience </h3></div>
+      
+      <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+   </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-offset-2 col-md-3">
+      <img style="float:left" class="img-circle" src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service22.jpg"/>
+      <div class="content-heading"><h3>Experience </h3></div>
+      <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+    </div>
+ 
+ <div class="col-md-offset-1 col-md-3">
+      <img style="float:left" class="img-circle" src="D:\Users\pc\Documents\engineering\8 sem\major\workspace\Vserve1\WebContent\service22.jpg"/>
+      <div class="content-heading"><h3>Experience </h3></div>
+      
+      <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+   
+    </div>
+  </div>
+
+</section>
+</div>
+</div></div></div></div>
+</div>
+
+<script>
+$(function() {
+
+    $('#login-form-link').click(function(e) {
+    	$("#login-form").delay(100).fadeIn(100);
+ 		$("#register-form").fadeOut(100);
+		$('#register-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#register-form-link').click(function(e) {
+		$("#register-form").delay(100).fadeIn(100);
+ 		$("#login-form").fadeOut(100);
+		$('#login-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
+});
+
+
+$(document).ready( function() {
+	$(document).on('change', '.btn-file :file', function() {
+	var input = $(this),
+		label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+	input.trigger('fileselect', [label]);
+	});
+
+	$('.btn-file :file').on('fileselect', function(event, label) {
+	    
+	    var input = $(this).parents('.input-group').find(':text'),
+	        log = label;
+	    
+	    if( input.length ) {
+	        input.val(log);
+	    } else {
+	        if( log ) alert(log);
+	    }
+    
+	});
+	function readURL(input) {
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+	        
+	        reader.onload = function (e) {
+	            $('#img-upload').attr('src', e.target.result);
+	        }
+	        
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	$("#imgInp").change(function(){
+	    readURL(this);
+	}); 	
+});
+
+
+</script>
+
+
+
+</body>
+</html>
